@@ -4,11 +4,8 @@ const app = new express();
 
 app.use(express.json());
 
-app.use("/thiago", (req, res) => {
-  res.status(200).json({ message: "hello Thiago" });
-});
-app.use("/yury", (req, res) => {
-  res.status(200).json({ message: "hello Yury" });
+app.use("/:name", (req, res) => {
+  res.status(200).json({ message: `hello ${req.params.name}` });
 });
 
 app.listen(3030, () => {
